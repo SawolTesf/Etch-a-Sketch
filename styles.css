@@ -7,7 +7,10 @@
   flex-direction: column;
  }
 
- 
+ button, input {
+  width: 300px;
+  font-size: 20px;
+ }
 
  #grid {
       display: grid;
@@ -17,8 +20,3 @@
       height: 500px;
   }
 
-  #grid > div {
-
-     border: 1px solid #000;
-  
-  }
