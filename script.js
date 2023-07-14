@@ -49,19 +49,22 @@ grid.addEventListener('mouseup', () => {
 colorInput.addEventListener("input", function () {
     selectedColor = colorInput.value;
     colorMode = "default";
+    toggleColorMode(colorInput, "default");
 });
 
 function toggleColorMode(button, mode) {
     // Reset background color of all buttons
-    const buttons = [randomMode, eraser]; // Add all buttons to this array
+    const buttons = [randomMode, eraser, colorInput]; // Add buttons to array
     buttons.forEach(function (btn) {
-        btn.style.backgroundColor = "";
+        btn.style.backgroundColor = ""; // Reset background color
+        btn.style.color = ""; // Reset text color 
     });
 
     if (colorMode === mode) {
         colorMode = "default";
         button.style.cssText = ""; // Reset color of clicked button when mode is not active
-    } else {
+    } 
+    else {
         colorMode = mode;
         button.style.cssText = "color: white; background-color: black"; // Change color of clicked button when mode is active
     }
