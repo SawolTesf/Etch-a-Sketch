@@ -1,6 +1,5 @@
 // html elements to be used
 const grid = document.getElementById("grid");
-//const defaultMode = document.getElementById("default-mode");
 const colorInput = document.getElementById("color");
 const randomMode = document.getElementById("random-mode");
 const toggleLines = document.getElementById("toggle-lines");
@@ -53,12 +52,18 @@ colorInput.addEventListener("input", function () {
 });
 
 function toggleColorMode(button, mode) {
-    if (colorMode === "default") {
-        colorMode = mode;
-        button.style.backgroundColor = "lightblue"; // Change color of button when mode is active
-    } else {
+    // Reset background color of all buttons
+    const buttons = [randomMode, eraser]; // Add all buttons to this array
+    buttons.forEach(function (btn) {
+        btn.style.backgroundColor = "";
+    });
+
+    if (colorMode === mode) {
         colorMode = "default";
-        button.style.backgroundColor = ""; // Reset color of button when default mode is active
+        button.style.cssText = ""; // Reset color of clicked button when mode is not active
+    } else {
+        colorMode = mode;
+        button.style.cssText = "color: white; background-color: black"; // Change color of clicked button when mode is active
     }
 }
 
@@ -67,30 +72,11 @@ randomMode.addEventListener("click", function () {
     toggleColorMode(randomMode, "random");
 });
 
-
-
 toggleLines.addEventListener("click", toggleDivLines);
-
-function toggleDivLines(){
-    const cells = document.querySelectorAll("#grid > div");
-    if (lines) {
-        cells.forEach(cell => {
-            cell.style.border = "none";
-        });
-        lines = false;
-    }
-    else {
-        cells.forEach(cell => {
-            cell.style.border = "1px solid black";
-        });
-        lines = true;
-    }
-}
 
 eraser.addEventListener("click", function () {
     toggleColorMode(eraser, "eraser");
 });
-
 
 reset.addEventListener("click", function () {
     createGrid(gridSize);
