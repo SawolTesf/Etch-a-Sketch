@@ -9,13 +9,15 @@
     <h1>Etch-a-Sketch</h1>
     
     <div id="container">
-        <div id="button-container">
-            <input type="color" id="color" name="color" value="#000000">
-            <button id="random-mode" class="btn">Random</button>
-            <button id="eraser" class="btn">eraser</button>
-            <button id="reset" class="btn">reset</button>
-            <button id="toggle-lines" class="btn">toggle grid lines</button>
-            <div class="slidecontainer">
+        <div id="selection-container">
+            <div id="button-container">
+                <input type="color" id="color" name="color" value="#000000">
+                <button id="random-mode" class="btn">Random</button>
+                <button id="eraser" class="btn">eraser</button>
+                <button id="reset" class="btn">reset</button>
+                <button id="toggle-lines" class="btn">toggle grid lines</button>
+            </div>
+            <div id="slide-container">
                 <p id="slider-value">32</p>
                 <input id="myRange" type="range" min="1" max="64" value="" class="slider">
             </div>
