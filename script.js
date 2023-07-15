@@ -118,7 +118,7 @@ function createGrid(size) {
     
     for (i = 0; i < x ; i++) {
         const div = document.createElement("div");
-
+        div.style.backgroundColor = "white";
         // Set border style based on value of lines variable
         if (lines) {
             div.style.border = "1px solid black";

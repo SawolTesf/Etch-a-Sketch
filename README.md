@@ -12,7 +12,7 @@ Etch-a-Sketch provides a user-friendly interface where you can draw pixelated im
 - Utilization of flexbox to create a grid layout
 - Implementation of hover effect to change the color of grid divs
 - Integration of a button for user input to generate a new grid with a specified number of squares per side
-- Limiting the user input to a maximum of 100 squares per side to optimize performance
+- Limiting the user input to a maximum of 64 squares per side to optimize performance
 
 ## Additional Block Creation Styles
 
