@@ -9,6 +9,7 @@ const slider = document.getElementById("myRange");
 const sliderValue = document.getElementById("slider-value");
 
 // variable initialization
+
 let mouseDown = false; // variable to check if mouse is down is set to false by default and will update to true when mouse is down later in the code
 
 let gridSize = 32; // variable to set grid size to 32 by default
@@ -43,14 +44,13 @@ grid.addEventListener('mouseup', () => {
     mouseDown = false; // Set mouseDown variable to false when mouse is released
 });
 
-/*defaultMode.addEventListener("click", function () {
-    colorMode = "default";
-});*/
 colorInput.addEventListener("input", function () {
     selectedColor = colorInput.value;
     colorMode = "default";
+    colorInput.style.backgroundColor = selectedColor; // Set background color of color input element
     toggleColorMode(colorInput, "default");
 });
+
 
 function toggleColorMode(button, mode) {
     // Reset background color of all buttons
