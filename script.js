@@ -63,7 +63,7 @@ function toggleColorMode(button, mode) {
     }
 }
 
-// Example usage for randomMode button
+// Event listener for randomMode button
 randomMode.addEventListener("click", function () {
     toggleColorMode(randomMode, "random");
 });
@@ -123,6 +123,21 @@ function createGrid(size) {
 
         document.getElementById("grid").appendChild(div);
         
+        div.addEventListener("touchstart", function (event) {
+            event.preventDefault();
+            setColor(colorMode, div);
+        });
+
+        grid.addEventListener("touchmove", function (event) {
+            event.preventDefault();
+            const touch = event.touches[0];
+            const element = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (element && element.parentNode === grid) {
+                setColor(colorMode, element);
+            }
+        });
+        
+
         div.addEventListener("mouseenter", function () {
             // Change the background color of the div to black when the mouse is down
             if (mouseDown) {
