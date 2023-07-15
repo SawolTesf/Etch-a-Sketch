@@ -1,4 +1,4 @@
-// html elements to be used
+// HTML elements to be used
 const grid = document.getElementById("grid");
 const colorInput = document.getElementById("color");
 const randomMode = document.getElementById("random-mode");
@@ -8,23 +8,15 @@ const reset = document.getElementById("reset");
 const slider = document.getElementById("myRange");
 const sliderValue = document.getElementById("slider-value");
 
-// variable initialization
+// Variable initialization
+let mouseDown = false; // Variable to check if mouse is down is set to false by default and will update to true when mouse is down later in the code
+let gridSize = 32; // Variable to set grid size to 32 by default
+sliderValue.textContent = gridSize + " x " + gridSize; // Set slider value to 32 x 32 and shows on page
+let colorMode = "default"; // Variable to set color mode to defaultColorMode by default
+let selectedColor = "black"; // Variable to set selected color to black by default
+let lines = true; // Variable to set lines to true by default
 
-let mouseDown = false; // variable to check if mouse is down is set to false by default and will update to true when mouse is down later in the code
-
-let gridSize = 32; // variable to set grid size to 32 by default
-
-sliderValue.textContent = gridSize + " x " + gridSize; // set slider value to 32 x 32 and shows on page
-
-let colorMode = "default"; // variable to set color mode to defaultColorMode by default
-
-let selectedColor = "black"; // variable to set selected color to black by default
-
-let lines = true; // variable to set lines to true by default
-
-/* event listeners */
-
-// Event listener for mousedown event on the grid
+/* Event listeners */
 
 // Add event listener for page load
 window.addEventListener("load", function () {
@@ -33,17 +25,18 @@ window.addEventListener("load", function () {
     colorInput.value = "#000000";
 });
 
+// Event listener for mousedown event on the grid
 grid.addEventListener("mousedown", function (event) {
     event.preventDefault();
     mouseDown = true; // Set mouseDown variable to true when mouse is pressed down
 });
 
 // Event listener for mouseup event on the grid
-
 grid.addEventListener('mouseup', () => {
     mouseDown = false; // Set mouseDown variable to false when mouse is released
 });
 
+// Event listener for color input change
 colorInput.addEventListener("input", function () {
     selectedColor = colorInput.value;
     colorMode = "default";
@@ -51,7 +44,7 @@ colorInput.addEventListener("input", function () {
     toggleColorMode(colorInput, "default");
 });
 
-
+// Function to toggle color mode
 function toggleColorMode(button, mode) {
     // Reset background color of all buttons
     const buttons = [randomMode, eraser, colorInput]; // Add buttons to array
@@ -75,12 +68,15 @@ randomMode.addEventListener("click", function () {
     toggleColorMode(randomMode, "random");
 });
 
+// Event listener for toggleLines button
 toggleLines.addEventListener("click", toggleDivLines);
 
+// Event listener for eraser button
 eraser.addEventListener("click", function () {
     toggleColorMode(eraser, "eraser");
 });
 
+// Event listener for reset button
 reset.addEventListener("click", function () {
     createGrid(gridSize);
 });
@@ -92,8 +88,7 @@ slider.oninput = function() {
     createGrid(gridSize);
 }
 
-// This function controls what each color mode does
-
+// Function to set color based on color mode
 function setColor(mode, div) {
     if(mode == "default") {
         div.style.backgroundColor = selectedColor;
@@ -106,7 +101,6 @@ function setColor(mode, div) {
     }
 }
 
-// Function to create the grid
 // Function to create the grid
 function createGrid(size) {
     grid.innerHTML = '';
@@ -122,7 +116,8 @@ function createGrid(size) {
         // Set border style based on value of lines variable
         if (lines) {
             div.style.border = "1px solid black";
-        } else {
+        } 
+        else {
             div.style.border = "none";
         }
 
@@ -137,11 +132,9 @@ function createGrid(size) {
     }
 }
 
-
 createGrid(gridSize); // Call the createGrid function with the initial gridSize value
 
 // Function to toggle grid lines
-
 function toggleDivLines(){
     const cells = document.querySelectorAll("#grid > div");
     if (lines) {
@@ -159,7 +152,6 @@ function toggleDivLines(){
 }
 
 // Function to generate random color
-
 function getRandomColor() {
     return '#' + Math.floor(Math.random()*16777215).toString(16);
 }

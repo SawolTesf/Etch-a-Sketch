@@ -17,9 +17,8 @@ Etch-a-Sketch provides a user-friendly interface where you can draw pixelated im
 ## Additional Block Creation Styles
 
 - Normal Black or White: Create blocks with a standard black or white color, perfect for classic sketches.
+-Chose your own color: Make blocks with your own color of choice.
 - RGB Random: Generate blocks with randomized RGB values, allowing for vibrant and dynamic drawings.
-
-*Note: These additional block creation styles will be implemented as part of future updates to the application.*
 
 ## Skills Demonstrated
 
@@ -28,6 +27,8 @@ Etch-a-Sketch provides a user-friendly interface where you can draw pixelated im
 - Handling user interactions through event listeners and JavaScript functions
 - Working with user input using HTML forms and prompts
 - Utilizing Git and GitHub for version control and project collaboration
+
+## Contact
 
 Feel free to explore, contribute, and provide feedback on this project. I hope you enjoy using Etch-a-Sketch as much as I enjoyed creating it!
 
